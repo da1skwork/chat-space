@@ -1,0 +1,28 @@
+.contents
+  .side-bar
+    .user-info
+      .username dai
+      .edit
+        = link_to messages_path do
+          %i.fa.fa-pencil
+        = link_to messages_path do
+          %i.fa.fa-cog
+
+    .group-list
+      %ul.group-list
+        %li
+          %p グループ名
+          %p メッセージ
+
+
+  / .main-contents
+  /   .group-info
+  /     %p グループ名
+  /     %p members名
+  /   .messages-list
+  /     %ul.message-list
+  /       %li
+  /         %p username date:
+  /         %p メッセージ
+  /   .post-message
+
