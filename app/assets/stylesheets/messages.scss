@@ -39,6 +39,21 @@ html,body{
     .group-list{
       background-color: #2f3e51;
       height: 100%;
+      ul.group-list{
+        padding: 0 20px;
+        color: #FFFFFF;
+        li{
+          padding: 20px 0;
+          p.group-listt__name {
+            font-size: 15px;
+          }
+          p.group-list__message{
+            font-size: 11px;
+            margin: 5px 0 0 0;
+          }
+        }
+      }
+
     }
   }
   // .main-contents{
