@@ -1,30 +1,45 @@
 .contents
   .side-bar
     .user-info
-      .username dai
-      .edit
+      .user-name dai
+      .user-action
         = link_to messages_path do
           %i.fa.fa-pencil
         = link_to messages_path do
           %i.fa.fa-cog
 
-    .group-list
+    .chat-groups
       %ul.group-list
-        %li
-          %p.group-listt__name aeaaaaaa
-          %p.group-list__message まだメッセージはありません
-        %li
-          %p.group-listt__name sampleグループ
-          %p.group-list__message まだメッセージはありません
+        %li.group-info
+          %p.group-info__name グループ名
+          %p.group-info__message まだメッセージはありません
+        %li.group-info
+          %p.group-info__name グループ名
+          %p.group-info__message まだメッセージはありません
 
-  / .main-contents
-  /   .group-info
-  /     %p グループ名
-  /     %p members名
-  /   .messages-list
-  /     %ul.message-list
-  /       %li
-  /         %p username date:
-  /         %p メッセージ
-  /   .post-message
+  .main-contents
+    .chat_header
+      .chat-group
+        %p.chat-group__name グループ名
+        %p.chat-group__members Members: member1 member2 member3
+      = link_to "Edit", '#'
 
+    .group-messages
+      %ul
+        %li.message-list
+          %p.message-list__username username
+          %p.message-list__date 2017/01/01 00:00:00
+          %p.message-list__comment コメント
+        %li.message-list
+          %p.message-list__username username
+          %p.message-list__date 2017/01/01 00:00:00
+          %p.message-list__comment コメント
+
+
+    .post-message
+      %form.post-form
+        %input.post-form__text{type: "text", placeholder: "type a message"}
+        %label.post-image
+          %i.fa.fa-picture-o
+          %input.post-image__btn{type: "file"}
+        %input.post-form__send{type: "submit", value: "Send"}
