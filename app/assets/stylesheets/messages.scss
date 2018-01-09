@@ -6,16 +6,14 @@ html,body{
 .contents{
   width: 100%;
   height: 100%;
-  background-color: blue;
 
   .side-bar{
-    background-color: gray;
     width: 300px;
     height: 100%;
     float: left;
 
     .user-info{
-      color: #FFFFFF;
+      color: $white;
       font-size: 16px;
       font-weight: bold;
       background-color: #253141;
@@ -30,10 +28,10 @@ html,body{
       .user-action{
         float:right;
         i.fa.fa-pencil{
-          color: white;
+          color: $white;
         }
         i.fa.fa-cog{
-          color: white;
+          color: $white;
         }
       }
     }
@@ -64,8 +62,7 @@ html,body{
     height: 100%;
     float:right;
 
-    .chat_header{
-      // background-color: white;
+    .chat-header{
       height: 100px;
       padding: 0 40px;
       border-bottom:solid 1px #eeeeee;
@@ -74,24 +71,25 @@ html,body{
         float: left;
         &__name{
           font-size: 16px;
+          font-weight: bold;
           color: #333333;
           padding: 30px 0 15px;
         }
         &__members{
           font-size: 12px;
-          color: #999999;
+          color: $silver-gray;
         }
       }
 
       a{
       margin: 28px 0;
       padding: 0 20px;
-      border: solid 2px #38AEF0;
+      border: solid 2px $blue;
       text-align: center;
       float: right;
       height: 40px;
       line-height: 2.5;
-      color: #38AEF0;
+      color: $blue;
       text-decoration: none;
       }
     }
@@ -103,19 +101,22 @@ html,body{
       li.message-list{
         padding: 40px 0 0;
         line-height: 16px;
+        color: $dark-gray;
 
-        p.message-list__username{
+        .message-list__username{
           font-size: 16px;
+          font-weight: bold;
           float: left;
         }
 
-        p.message-list__date{
+        .message-list__date{
           float: left;
           font-size: 12px;
           margin-left: 10px;
+          color: $silver-gray;
         }
 
-        p.message-list__comment{
+        .message-list__comment{
           font-size: 14px;
           padding-top: 10px;
           clear: both;
@@ -136,6 +137,7 @@ html,body{
           width: calc(100% - 210px);
           padding-left: 10px;
           font-size: 16px;
+          color: $dark-gray;
         }
 
         .post-image{
@@ -155,8 +157,8 @@ html,body{
         &__send{
           height: 50px;
           width: 100px;
-          background-color: #38AEF0;
-          color: white;
+          background-color: $blue;
+          color: $white;
           float: right;
           margin-right: 73px;
         }
