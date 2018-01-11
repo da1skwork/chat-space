@@ -1,21 +1,6 @@
 .contents
   .side-bar
-    .user-info
-      .user-name dai
-      .user-action
-        = link_to messages_path do
-          %i.fa.fa-pencil
-        = link_to messages_path do
-          %i.fa.fa-cog
-
-    .chat-groups
-      %ul.group-list
-        %li.group-info
-          %p.group-info__name グループ名
-          %p.group-info__message まだメッセージはありません
-        %li.group-info
-          %p.group-info__name グループ名
-          %p.group-info__message まだメッセージはありません
+    = render "layouts/shared/side_bar"
 
   .main-contents
     .chat-header
