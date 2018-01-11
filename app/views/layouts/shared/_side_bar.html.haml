@@ -2,7 +2,7 @@
   .user-name
     = current_user.name
   .user-action
-    = link_to messages_path do
+    = link_to new_group_path do
       %i.fa.fa-pencil
     = link_to edit_user_path(current_user.id) do
       %i.fa.fa-cog
