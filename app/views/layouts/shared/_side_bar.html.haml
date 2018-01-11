@@ -9,9 +9,9 @@
 
 .chat-groups
   %ul.group-list
-    %li.group-info
-      %p.group-info__name グループ名
-      %p.group-info__message まだメッセージはありません
-    %li.group-info
-      %p.group-info__name グループ名
-      %p.group-info__message まだメッセージはありません
+    - current_user.groups.each do |group|
+      %li.group-info
+        =link_to group_messages_path(group) do
+          %p.group-info__name
+            =group.name
+          %p.group-info__message メッセージはまだありません。
