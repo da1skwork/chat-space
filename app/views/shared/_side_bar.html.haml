@@ -1,0 +1,18 @@
+.side-bar
+  .user-info
+    .user-name
+      = current_user.name
+    .user-action
+      = link_to new_group_path do
+        %i.fa.fa-pencil
+      = link_to edit_user_path(current_user.id) do
+        %i.fa.fa-cog
+
+  .chat-groups
+    %ul.group-list
+      - current_user.groups.each do |group|
+        %li.group-info
+          =link_to group_messages_path(group) do
+            %p.group-info__name
+              =group.name
+            %p.group-info__message メッセージはまだありません。
