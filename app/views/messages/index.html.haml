@@ -10,20 +10,12 @@
 
     .group-messages
       %ul
-        %li.message-list
-          %p.message-list__username username
-          %p.message-list__date 2017/01/01 00:00:00
-          %p.message-list__comment コメント
-        %li.message-list
-          %p.message-list__username username
-          %p.message-list__date 2017/01/01 00:00:00
-          %p.message-list__comment コメント
-
-
-    .post-message
-      %form.post-form
-        %input.post-form__text{type: "text", placeholder: "type a message"}
-        %label.post-image
-          %i.fa.fa-picture-o
-          %input.post-image__btn{type: "file"}
-        %input.post-form__send{type: "submit", value: "Send"}
+        = render @messages
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
