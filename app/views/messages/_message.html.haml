@@ -1,4 +1,9 @@
 %li.message-list
-  %p.message-list__username username
-  %p.message-list__date 2017/01/01 00:00:00
-  %p.message-list__comment コメント
+  %p.message-list__username
+    = message.user.name
+  %p.message-list__date
+    = format_posted_time(message.created_at)
+  - if message.content.present?
+    %p.message-list__comment
+      = message.content
+  = image_tag message.image.url, class: "message-list__image" if message.image.present?
