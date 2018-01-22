@@ -17,4 +17,4 @@
 .byebug_history
 
 # Ignore messages image file.
-public/uploads/message/image
+public/uploads
