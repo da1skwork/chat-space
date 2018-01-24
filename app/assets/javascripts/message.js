@@ -1,19 +1,22 @@
 $(function(){
   function buildHTML(message){
+    var image = ""
+    if (message.image.url){
+      var image = '<img src= "${ message.image }", class= "message-list__image">'
+    }
     var html = `<li class= "message-list">
                           <p class= "message-list__username">
-                            ${message.user_name}
+                            ${ message.user_name }
                           </p>
                           <p class= "message-list__date">
-                            format_posted_time(${message.created_at})
+                            ${ message.created_at }
                           </p>
-                          if ${message.content}.present?
-                            <p class= "message-list__comment">
-                              ${message.content}
-                            </p>
-                          end
-                          <img ${message.image.url}, class= "message-list__image" if ${message.image}.present?
+                          <p class= "message-list__comment">
+                            ${ message.content }
+                          </p>
+                          ${image}
                 </li>`
+
     return html;
   };
   $('#new_message').on('submit', function(e){
@@ -41,5 +44,5 @@ $(function(){
     .fail(function(){
       alert('error');
     })
-  })
+  });
 })
