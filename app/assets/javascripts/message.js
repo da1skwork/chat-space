@@ -1,24 +1,26 @@
 $(function(){
   function buildHTML(message){
-    var image = ""
-    if (message.image.url){
+    if (message.image){
       var image = '<img src= "${ message.image }", class= "message-list__image">'
     }
+    else {
+      var image = ""
+    };
     var html = `<li class= "message-list">
-                          <p class= "message-list__username">
-                            ${ message.user_name }
-                          </p>
-                          <p class= "message-list__date">
-                            ${ message.created_at }
-                          </p>
-                          <p class= "message-list__comment">
-                            ${ message.content }
-                          </p>
-                          ${image}
+                  <p class= "message-list__username">
+                    ${ message.user_name }
+                  </p>
+                  <p class= "message-list__date">
+                    ${ message.created_at }
+                  </p>
+                  <p class= "message-list__comment">
+                    ${ message.content }
+                  </p>
+                  ${image}
                 </li>`
-
     return html;
   };
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -45,4 +47,29 @@ $(function(){
       alert('error');
     })
   });
+
+  $(function(){
+    if (location.href.match(/\/groups\/\d+\/messages/)){
+      setInterval(function(){
+        var url = location.href
+        $.ajax({
+          url: url,
+          type: 'GET',
+          dataType: "json"
+        })
+        .done(function(messages){
+          if (messages.length !== 0) {
+            $('.messages').empty();
+            messages.forEach(function(message){
+              var html = buildHTML(message);
+              $('.messages').append(html);
+            })
+          }
+        })
+        .fail(function(){
+          alert('error');
+        });
+      },5000);
+    }
+  })
 })
